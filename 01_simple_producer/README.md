@@ -26,7 +26,7 @@ java -jar target/grenke-workshop-basic-producer.jar
 ```java
 import org.apache.kafka.clients.producer.KafkaProducer;
 
-public static void sendWithCallback(KafkaProducer producer) {
+public static void sendWithCallback(KafkaProducer producer, ProducerRecord producerRecord) {
     producer.send(producerRecord, (recordMetadata, exception) -> {
         if (exception == null) {
             System.out.println("Record written to offset " +
