@@ -22,20 +22,21 @@ java -jar target/grenke-workshop-basic-producer.jar
 4. Produce one more message to the {surename}-my-first-topic using any key
 5. Produce five more messages to the {surename}-my-first-topic Partition 2
 6. Implement a call back handler to the producer to print out the offset the message is sent to and test it.
-
-```java
-import org.apache.kafka.clients.producer.KafkaProducer;
-
-public static void sendWithCallback(KafkaProducer producer, ProducerRecord producerRecord) {
-    producer.send(producerRecord, (recordMetadata, exception) -> {
-        if (exception == null) {
-            System.out.println("Record written to offset " +
-                    recordMetadata.offset() + " timestamp " +
-                    recordMetadata.timestamp());
-        } else {
-            System.err.println("An error occurred");
-            exception.printStackTrace(System.err);
-        }
-    });
-}
-```
+    ```java
+    import org.apache.kafka.clients.producer.KafkaProducer;
+    
+    public static void sendWithCallback(KafkaProducer producer, ProducerRecord producerRecord) {
+        producer.send(producerRecord, (recordMetadata, exception) -> {
+            if (exception == null) {
+                System.out.println("Record written to offset " +
+                        recordMetadata.offset() + " timestamp " +
+                        recordMetadata.timestamp());
+            } else {
+                System.err.println("An error occurred");
+                exception.printStackTrace(System.err);
+            }
+        });
+    }
+    ```
+7. Add a custom header to the messages you send out consisting of the key-value pair "producer-name" and "{surename}"
+   (this is the bonus exercise, so there are no hints)
