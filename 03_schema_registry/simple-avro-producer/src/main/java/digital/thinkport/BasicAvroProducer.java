@@ -16,16 +16,16 @@ public class BasicAvroProducer {
 
     private static Properties getProperties(){
         Properties properties = new Properties();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "pkc-75m1o.europe-west3.gcp.confluent.cloud:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "{bootstrap-server}");
         properties.put("security.protocol" , "SASL_SSL");
-        properties.put("sasl.jaas.config" , "org.apache.kafka.common.security.plain.PlainLoginModule required username='MTHMXNOJJOMJDWKC' password='E5AL3BwH3tvuz7nnZyc4T/ENN2TC0UUNTOces8gPefP2jtL+G5HRE8hjgI1bpFgJ';");
+        properties.put("sasl.jaas.config" , "org.apache.kafka.common.security.plain.PlainLoginModule required username='{username}' password='{password}';");
         properties.put("sasl.mechanism" , "PLAIN");
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
         //SCHEMA-REGISTRY
-        properties.put("schema.registry.url", "https://psrc-2312y.europe-west3.gcp.confluent.cloud");
+        properties.put("schema.registry.url", "{schema-registry-url}");
         properties.put("basic.auth.credentials.source", "USER_INFO");
-        properties.put("basic.auth.user.info", "3SYHEWSXNVO7EG3P:9xJ+x9hW2AHEQIaqzBifBMBcgWP1kINcXNRy7+fGIe6xlCOlI1UzjVjXvtHMUenQ");
+        properties.put("basic.auth.user.info", "{schema-registry-username}:{schema-registry-password}");
         return properties;
     }
 
