@@ -3,8 +3,7 @@
 1. Replace {bootstrap-server} and {username} and {password} in the getProperties Method in the Main class with values given by the trainer
 ## Build Project
 1. try to build the project using maven. No errors should occur. 
-```sh 
-cd 02_simple_consumer
+```sh
 mvn clean install
 ```
 ## Run Project
