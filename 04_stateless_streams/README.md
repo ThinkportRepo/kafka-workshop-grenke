@@ -22,25 +22,26 @@ java -jar target/grenke-workshop-stateless-stream.jar
     ```   
 
 ## Filter the messages
-A lot of prsents seem to be too expensive !
+A lot of presents seem to be too expensive !
 1. Instead of for each peek in all messages
    ```java
    .peek((k,v)-> System.out.println())
     ```
-2. filter all messages with a price greater than 50
+2. filter all orders with a price greater than 50
     ```java
     .filter((k,v)->...)
     ```   
 3. for each message: print out the value. (terminal operation)
 
 ## Validate that you checked the orders for compliance
-All filtered messages should be in a OrderedPresentChecked format
+All filtered messages should be trackable inside the elf factory. Mapping the original message in a OrderedPresentChecked format is required.
 1. Create a new serde config for the OrderedPresentChecked
-2. map the filtered stream of OrderedPresent to a stream of new OrderedPresentChecked
+2. Replace the for each of the filter step with peek
+3. map the filtered stream of OrderedPresent to a stream of new OrderedPresentChecked
     ```java
     .mapValues((v)->{...})
     ```   
-3. for each message: print out the value. (terminal operation)
+4. for each message: print out the value. (terminal operation)
 
 ## Produce your result
 1. Instead of for each: Stream to topic "factory.presents.checked.0"
