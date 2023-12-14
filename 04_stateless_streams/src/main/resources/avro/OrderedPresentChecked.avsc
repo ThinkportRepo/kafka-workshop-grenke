@@ -1,0 +1,27 @@
+{
+  "type": "record",
+  "name": "OrderedPresentChecked",
+  "namespace": "digital.thinkport",
+  "fields": [
+    {
+      "name": "brand",
+      "type": "string"
+    },
+    {
+      "name": "product",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    },
+    {
+      "name": "checkedBy",
+      "type": "string"
+    },
+    {
+      "name": "checkedAt",
+      "type": "long"
+    }
+  ]
+}
