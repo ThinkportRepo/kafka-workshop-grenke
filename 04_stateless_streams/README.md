@@ -23,11 +23,15 @@ java -jar target/grenke-workshop-stateless-stream.jar
 
 ## Filter the messages
 A lot of prsents seem to be too expensive !
-1. filter all messages with a price greater than 50
+1. Instead of for each peek in all messages
+   ```java
+   .peek((k,v)-> System.out.println())
+    ```
+2. filter all messages with a price greater than 50
     ```java
     .filter((k,v)->...)
     ```   
-2. for each message: print out the value. (terminal operation)
+3. for each message: print out the value. (terminal operation)
 
 ## Validate that you checked the orders for compliance
 All filtered messages should be in a OrderedPresentChecked format
@@ -39,5 +43,7 @@ All filtered messages should be in a OrderedPresentChecked format
 3. for each message: print out the value. (terminal operation)
 
 ## Produce your result
-1. Stream to topic "factory.presents.checked.0"
-   .to("{topic}", Consumed.with(Serdes.String(), getOrderedPresentCheckedSerde(properties)));
+1. Instead of for each: Stream to topic "factory.presents.checked.0"
+    ```java
+    .to("{topic}", Consumed.with(Serdes.String(), getOrderedPresentCheckedSerde(properties)));
+    ```   
