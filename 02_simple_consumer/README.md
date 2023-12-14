@@ -13,11 +13,7 @@ java -jar target/grenke-workshop-basic-consumer.jar
 ```
 ## Consume Messages
 1. Consume the messages from factory.presents.ordered.0 and print the message content
-2. If no messages show up, think about the concept of consumer groups    private static void consumeMessagesSyncCommit(KafkaConsumer<String,String> consumer){
-   ConsumerRecords<String, String> result = consumer.poll(Duration.of(100, ChronoUnit.MILLIS));
-   result.forEach(System.out::println);
-   consumer.commitSync();
-   }
+2. If no messages show up, think about the concept of consumer groups    
 
 ## Implement a Synchronous Commit of the offset for the whole consumed batch
 1. Set the Properties accordingly so that manual commits are enabled
@@ -57,7 +53,7 @@ java -jar target/grenke-workshop-basic-consumer.jar
             offsetAndMetadataMap.put(new TopicPartition(consumerRecord.topic(), consumerRecord.partition()),
                     new OffsetAndMetadata(consumerRecord.offset()));
             consumer.commitAsync(offsetAndMetadataMap,
-                    (offsets, exception) -> System.out.printf("Callback, offset: %s, exception %s%n", offsets, exception)
+                    (offsets, exception) -> {System.out.printf("Callback, offset: %s, exception %s%n", offsets, exception)}
                     );
         }
     }
