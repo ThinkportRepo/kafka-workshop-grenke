@@ -1,0 +1,31 @@
+{
+  "type": "record",
+  "name": "Wishlist",
+  "namespace": "digital.thinkport",
+  "fields": [
+    {
+      "name": "recipient",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    },
+    {
+      "name": "presents",
+      "type": {
+        "type": "array",
+        "items": "string",
+        "default": {}
+      }
+    },
+    {
+      "name": "price",
+      "type": "double"
+    }
+  ]
+}
