@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "PresentRecipient",
+  "namespace": "digital.thinkport",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "age",
+      "type": "int"
+    },
+    {
+      "name": "address",
+      "type": "string"
+    }
+  ]
+}

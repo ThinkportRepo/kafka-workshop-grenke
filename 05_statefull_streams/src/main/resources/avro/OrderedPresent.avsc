@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "OrderedPresent",
+  "namespace": "digital.thinkport",
+  "fields": [
+    {
+      "name": "brand",
+      "type": "string"
+    },
+    {
+      "name": "product",
+      "type": "string"
+    },
+    {
+      "name": "price",
+      "type": "double"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "PresentsPerRecipient",
+  "namespace": "digital.thinkport",
+  "fields": [
+    {
+      "name": "recipient",
+      "type": "string"
+    },
+    {
+      "name": "presents",
+      "type": {
+        "type": "array",
+        "items": "string",
+        "default": {}
+      }
+    },
+    {
+      "name": "cumulated",
+      "type": "double"
+    }
+  ]
+}
